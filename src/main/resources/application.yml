@@ -1,0 +1,65 @@
+server:
+    servlet:
+        contextPath: /bcfs
+    session:
+        timeout: 3600s
+    port: 3000
+
+application:
+    scheduler: 10
+    clients:
+        experimental:
+            user: user101
+            password: TmwyZWwxb0xPZy1jSWJqWmhXalNhQlRVQTBIdUhVM2Q=
+        production:
+            user: someone
+            password: VmZFckJrUHlnaUNKYUtNSHRWV3RZMGJscHNyaXo3MGY=
+
+spring:
+    profiles:
+        active: dev
+    application:
+        name: Blockchain FileStore
+    data:
+        rest:
+            base-path: /repos
+    thymeleaf:
+        cache: true
+    template:
+        cache: true
+    datasource:
+        maximum-pool-size: 3
+    redis:
+        database: 0
+        host: 127.0.0.1
+        port: 6379
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+        timeout: 600
+#    http:
+#        multipart:
+#            max-file-size: 8M
+    servlet:
+        multipart:
+            max-file-size: 8192KB
+            max-request-size: 8192KB
+
+iota:
+    host: 127.0.0.1
+    protocol: http
+    port: 14265
+    seed: SEED
+    address: ADDRESS
+    file-store-emulate: true
+    basedir: /tmp/iota
+
+datasource:
+    driver: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bcfs?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: bcfs_user
+    password: cGFzc3dvcmQ=
+    dialect: org.hibernate.dialect.MySQL5Dialect
+    ddl-auto: none
+    show-sql: false
